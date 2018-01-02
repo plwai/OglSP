@@ -1,0 +1,5 @@
+// the configured options and settings for OpenGL Stater Pack
+#cmakedefine OglSP_VERSION_MAJOR @OglSP_VERSION_MAJOR@
+#cmakedefine OglSP_VERSION_MINOR @OglSP_VERSION_MINOR@
+
+#cmakedefine ROOT_PATH "@ROOT_PATH@"
