@@ -24,7 +24,7 @@ class Shader {
 		void setMatrix4(const GLchar *name, const glm::mat4 &matrix, GLboolean useShader = false);
 
 		// Accessors
-		GLuint getShaderID();
+		GLuint getShaderID() const;
 
 	private:
 		GLuint ID;

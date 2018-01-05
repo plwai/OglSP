@@ -129,7 +129,7 @@ void Shader::checkCompileErrors(GLuint object, std::string type) {
 	}
 }
 
-GLuint Shader::getShaderID() {
+GLuint Shader::getShaderID() const {
 	return ID;
 }
 
