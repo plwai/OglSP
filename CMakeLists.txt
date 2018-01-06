@@ -4,6 +4,7 @@ project (OglSP)
 find_package(OpenGL REQUIRED)
 find_package(GLFW3 3.2 REQUIRED)
 find_package(GLM 0.9.9 REQUIRED)
+find_package(freetype REQUIRED)
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
@@ -28,8 +29,6 @@ set ( source_files
 	
 	${OglSP_SOURCE_PATH}/Game.cpp
 	${OglSP_SOURCE_PATH}/GameImpl.cpp
-	${OglSP_SOURCE_PATH}/Renderer.cpp
-	${OglSP_SOURCE_PATH}/2DRenderer.cpp
 	${OglSP_SOURCE_PATH}/TextRenderer.cpp
 	${OglSP_SOURCE_PATH}/SpriteRenderer.cpp
 	${OglSP_SOURCE_PATH}/FbRenderer.cpp
@@ -42,13 +41,13 @@ set ( source_files
 	${OglSP_SOURCE_PATH}/Texture2D.cpp
 	${OglSP_SOURCE_PATH}/ParticleGenerator.cpp
 	${OglSP_SOURCE_PATH}/Audio.cpp
+
+	${OglSP_SOURCE_PATH}/CommonUtilities.cpp
 )
 
 set ( header_files
 	${OglSP_SOURCE_PATH}/Game.h
 	${OglSP_SOURCE_PATH}/GameImpl.h
-	${OglSP_SOURCE_PATH}/Renderer.h
-	${OglSP_SOURCE_PATH}/2DRenderer.h
 	${OglSP_SOURCE_PATH}/TextRenderer.h
 	${OglSP_SOURCE_PATH}/SpriteRenderer.h
 	${OglSP_SOURCE_PATH}/FbRenderer.h
@@ -61,6 +60,8 @@ set ( header_files
 	${OglSP_SOURCE_PATH}/Texture2D.h
 	${OglSP_SOURCE_PATH}/ParticleGenerator.h
 	${OglSP_SOURCE_PATH}/Audio.h
+
+	${OglSP_SOURCE_PATH}/CommonUtilities.h
 )
 
 set ( shader_files
@@ -83,6 +84,7 @@ target_include_directories(OglSP PUBLIC "${PROJECT_SOURCE_DIR}/modules/stb")
 target_include_directories(OglSP PUBLIC ${OPENGL_INCLUDE_DIR})
 target_include_directories(OglSP PUBLIC ${GLM_INCLUDE_DIR})
 target_include_directories(OglSP PUBLIC ${FREETYPE_INCLUDE_DIRS})
+target_link_libraries(OglSP freetype)
 target_link_libraries(OglSP ${OPENGL_gl_LIBRARY})
 target_link_libraries(OglSP glfw)
 target_link_libraries(OglSP glm)
