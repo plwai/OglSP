@@ -5,7 +5,6 @@
 #include "ResourceManager.h"
 #include "CommonUtilities.h"
 #include "SpriteRenderer.h"
-#include "PostProcessor.h"
 
 Game::Game(GLuint width, GLuint height) {
 	if (gameImplementation == nullptr) {

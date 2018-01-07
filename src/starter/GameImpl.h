@@ -15,7 +15,6 @@
 #include "ResourceManager.h"
 #include "CommonUtilities.h"
 #include "SpriteRenderer.h"
-#include "PostProcessor.h"
 
 struct Screen {
 	GLuint width;

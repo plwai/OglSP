@@ -10,6 +10,8 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 
+option(OglSP_EXAMPLE "Build the OglSP example programs" OFF)
+
 # version
 set (OglSP_VERSION_MAJOR 0)
 set (OglSP_VERSION_MINOR 1)
@@ -33,7 +35,6 @@ set ( source_files
 	${OglSP_SOURCE_PATH}/TextRenderer.cpp
 	${OglSP_SOURCE_PATH}/SpriteRenderer.cpp
 	${OglSP_SOURCE_PATH}/FbRenderer.cpp
-	${OglSP_SOURCE_PATH}/PostProcessor.cpp
 	${OglSP_SOURCE_PATH}/GameObject.cpp
 	${OglSP_SOURCE_PATH}/ResourceManager.cpp
 	${OglSP_SOURCE_PATH}/ResourceImpl.cpp
@@ -51,7 +52,6 @@ set ( header_files
 	${OglSP_SOURCE_PATH}/TextRenderer.h
 	${OglSP_SOURCE_PATH}/SpriteRenderer.h
 	${OglSP_SOURCE_PATH}/FbRenderer.h
-	${OglSP_SOURCE_PATH}/PostProcessor.h
 	${OglSP_SOURCE_PATH}/GameObject.h
 	${OglSP_SOURCE_PATH}/ResourceManager.h
 	${OglSP_SOURCE_PATH}/ResourceImpl.h
@@ -66,11 +66,9 @@ set ( header_files
 set ( shader_files
 	${OglSP_SHADER_PATH}/sprite.vert
 	${OglSP_SHADER_PATH}/text.vert
-	${OglSP_SHADER_PATH}/postProcess.vert
 
 	${OglSP_SHADER_PATH}/sprite.frag
 	${OglSP_SHADER_PATH}/text.frag
-	${OglSP_SHADER_PATH}/postProcess.frag
 )
 
 set ( module_source_files
@@ -95,5 +93,9 @@ target_link_libraries(OglSP ${OPENGL_gl_LIBRARY})
 target_link_libraries(OglSP glfw)
 target_link_libraries(OglSP glm)
 
-install (TARGETS OglSP DESTINATION lib)
+if(OglSP_EXAMPLE)
+	add_subdirectory(examples)
+endif()
+
+install (TARGETS OglSP DESTINATION bin)
 install (FILES "${PROJECT_BINARY_DIR}/StarterConfig.h" DESTINATION include)
