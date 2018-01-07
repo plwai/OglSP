@@ -1,7 +1,8 @@
 #include "CommonUtilities.h"
 
-const char* CommonUtilities::getFullPath(std::string relativePath) {
+std::string CommonUtilities::getFullPath(std::string relativePath) {
 	std::string path = ROOT_PATH;
+	std::string result = path + "/" + relativePath;
 
-	return (path + relativePath).c_str();
+	return result;
 }

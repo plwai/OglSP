@@ -10,7 +10,7 @@ class CommonUtilities {
 		CommonUtilities() {}
 		~CommonUtilities() {}
 
-		static const char* getFullPath(std::string relativePath);
+		static std::string getFullPath(std::string relativePath);
 };
 
 #endif // !COMMON_UTILITIES_H

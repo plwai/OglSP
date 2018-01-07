@@ -46,3 +46,5 @@ ResourceManager::~ResourceManager() {
 	delete resImpl;
 	delete audioImpl;
 }
+
+ResourceManager* ResourceManager::resMgrInstance;

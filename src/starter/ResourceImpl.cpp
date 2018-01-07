@@ -5,12 +5,13 @@
 #include <sstream>
 #include <string>
 
+#define STB_IMAGE_IMPLEMENTATION
 #include <stb_image.h>
 
 
 ResourceImpl::ResourceImpl() { }
 
-Shader ResourceImpl::loadShaderFromFile(const GLchar *vShaderFile, const GLchar *fShaderFile, const GLchar *gShaderFile = nullptr) {
+Shader ResourceImpl::loadShaderFromFile(const GLchar *vShaderFile, const GLchar *fShaderFile, const GLchar *gShaderFile) {
 	std::string vertexCode;
 	std::string fragmentCode;
 	std::string geometryCode;

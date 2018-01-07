@@ -17,6 +17,7 @@ set (OglSP_VERSION_MINOR 1)
 # path
 set (ROOT_PATH "${PROJECT_SOURCE_DIR}")
 set (OglSP_SOURCE_PATH "${PROJECT_SOURCE_DIR}/src/starter")
+set (OglSP_SHADER_PATH "${PROJECT_SOURCE_DIR}/src/shaders")
 
 # config file
 configure_file ( 
@@ -32,8 +33,7 @@ set ( source_files
 	${OglSP_SOURCE_PATH}/TextRenderer.cpp
 	${OglSP_SOURCE_PATH}/SpriteRenderer.cpp
 	${OglSP_SOURCE_PATH}/FbRenderer.cpp
-	${OglSP_SOURCE_PATH}/PostProcessorManager.cpp
-	${OglSP_SOURCE_PATH}/PostProcessorImpl.cpp
+	${OglSP_SOURCE_PATH}/PostProcessor.cpp
 	${OglSP_SOURCE_PATH}/GameObject.cpp
 	${OglSP_SOURCE_PATH}/ResourceManager.cpp
 	${OglSP_SOURCE_PATH}/ResourceImpl.cpp
@@ -51,8 +51,7 @@ set ( header_files
 	${OglSP_SOURCE_PATH}/TextRenderer.h
 	${OglSP_SOURCE_PATH}/SpriteRenderer.h
 	${OglSP_SOURCE_PATH}/FbRenderer.h
-	${OglSP_SOURCE_PATH}/PostProcessorManager.h
-	${OglSP_SOURCE_PATH}/PostProcessorImpl.h
+	${OglSP_SOURCE_PATH}/PostProcessor.h
 	${OglSP_SOURCE_PATH}/GameObject.h
 	${OglSP_SOURCE_PATH}/ResourceManager.h
 	${OglSP_SOURCE_PATH}/ResourceImpl.h
@@ -65,7 +64,13 @@ set ( header_files
 )
 
 set ( shader_files
-	
+	${OglSP_SHADER_PATH}/sprite.vert
+	${OglSP_SHADER_PATH}/text.vert
+	${OglSP_SHADER_PATH}/postProcess.vert
+
+	${OglSP_SHADER_PATH}/sprite.frag
+	${OglSP_SHADER_PATH}/text.frag
+	${OglSP_SHADER_PATH}/postProcess.frag
 )
 
 set ( module_source_files
@@ -77,6 +82,7 @@ include_directories("${PROJECT_BINARY_DIR}")
 add_executable(OglSP ${source_files} ${header_files} ${module_source_files} ${shader_files})
 
 source_group("Module Source" FILES ${module_source_files})
+source_group("Shader Files" FILES ${shader_files})
 
 target_include_directories(OglSP PUBLIC ${OPENGL_INCLUDE_DIR})
 target_include_directories(OglSP PUBLIC "${PROJECT_SOURCE_DIR}/modules/glad/include")
@@ -84,7 +90,7 @@ target_include_directories(OglSP PUBLIC "${PROJECT_SOURCE_DIR}/modules/stb")
 target_include_directories(OglSP PUBLIC ${OPENGL_INCLUDE_DIR})
 target_include_directories(OglSP PUBLIC ${GLM_INCLUDE_DIR})
 target_include_directories(OglSP PUBLIC ${FREETYPE_INCLUDE_DIRS})
-target_link_libraries(OglSP freetype)
+target_link_libraries(OglSP ${FREETYPE_LIBRARIES})
 target_link_libraries(OglSP ${OPENGL_gl_LIBRARY})
 target_link_libraries(OglSP glfw)
 target_link_libraries(OglSP glm)
