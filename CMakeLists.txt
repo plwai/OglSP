@@ -41,7 +41,6 @@ set ( source_files
 	${OglSP_SOURCE_PATH}/ResourceImpl.cpp
 	${OglSP_SOURCE_PATH}/Shader.cpp
 	${OglSP_SOURCE_PATH}/Texture2D.cpp
-	${OglSP_SOURCE_PATH}/ParticleGenerator.cpp
 	${OglSP_SOURCE_PATH}/Audio.cpp
 
 	${OglSP_SOURCE_PATH}/CommonUtilities.cpp
@@ -59,7 +58,6 @@ set ( header_files
 	${OglSP_SOURCE_PATH}/ResourceImpl.h
 	${OglSP_SOURCE_PATH}/Shader.h
 	${OglSP_SOURCE_PATH}/Texture2D.h
-	${OglSP_SOURCE_PATH}/ParticleGenerator.h
 	${OglSP_SOURCE_PATH}/Audio.h	
 
 	${OglSP_SOURCE_PATH}/CommonUtilities.h

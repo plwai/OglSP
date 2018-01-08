@@ -50,7 +50,6 @@ set ( lib_files
 	${OglSP_SOURCE_PATH}/ResourceImpl.cpp
 	${OglSP_SOURCE_PATH}/Shader.cpp
 	${OglSP_SOURCE_PATH}/Texture2D.cpp
-	${OglSP_SOURCE_PATH}/ParticleGenerator.cpp
 	${OglSP_SOURCE_PATH}/Audio.cpp
 
 	${OglSP_SOURCE_PATH}/CommonUtilities.cpp
