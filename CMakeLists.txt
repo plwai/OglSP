@@ -33,6 +33,7 @@ set ( source_files
 	${OglSP_SOURCE_PATH}/Game.cpp
 	${OglSP_SOURCE_PATH}/GameImpl.cpp
 	${OglSP_SOURCE_PATH}/TextRenderer.cpp
+	${OglSP_SOURCE_PATH}/Renderer2D.cpp
 	${OglSP_SOURCE_PATH}/SpriteRenderer.cpp
 	${OglSP_SOURCE_PATH}/FbRenderer.cpp
 	${OglSP_SOURCE_PATH}/GameObject.cpp
@@ -50,6 +51,7 @@ set ( header_files
 	${OglSP_SOURCE_PATH}/Game.h
 	${OglSP_SOURCE_PATH}/GameImpl.h
 	${OglSP_SOURCE_PATH}/TextRenderer.h
+	${OglSP_SOURCE_PATH}/Renderer2D.h
 	${OglSP_SOURCE_PATH}/SpriteRenderer.h
 	${OglSP_SOURCE_PATH}/FbRenderer.h
 	${OglSP_SOURCE_PATH}/GameObject.h
@@ -58,7 +60,7 @@ set ( header_files
 	${OglSP_SOURCE_PATH}/Shader.h
 	${OglSP_SOURCE_PATH}/Texture2D.h
 	${OglSP_SOURCE_PATH}/ParticleGenerator.h
-	${OglSP_SOURCE_PATH}/Audio.h
+	${OglSP_SOURCE_PATH}/Audio.h	
 
 	${OglSP_SOURCE_PATH}/CommonUtilities.h
 )

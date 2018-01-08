@@ -40,7 +40,7 @@ class Game {
 		GLboolean keysProcessed[1024];
 		Screen screen;
 
-		SpriteRenderer* spriteRenderer;
+		Renderer2D* spriteRenderer;
 		TextRenderer* textRenderer;
 		PostProcessor* effect;
 		ResourceManager* resMgr;

@@ -39,6 +39,7 @@ set ( module_source_files
 
 set ( lib_files
 	${OglSP_SOURCE_PATH}/TextRenderer.cpp
+	${OglSP_SOURCE_PATH}/Renderer2D.cpp
 	${OglSP_SOURCE_PATH}/SpriteRenderer.cpp
 	${OglSP_SOURCE_PATH}/FbRenderer.cpp
 	${OglSP_SOURCE_PATH}/GameObject.cpp

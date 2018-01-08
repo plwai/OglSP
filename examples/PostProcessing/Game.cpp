@@ -49,7 +49,7 @@ void Game::update(GLfloat dt) {
 void Game::render() {
 	this->effect->beginRender();
 
-	this->spriteRenderer->drawSprite(resMgr->getTexture("box"),
+	this->spriteRenderer->draw(resMgr->getTexture("box"),
 									glm::vec2(0, 0), 
 									glm::vec2(this->getScreen().width, this->getScreen().height),
 									0.0f);

@@ -9,7 +9,7 @@ SpriteRenderer::~SpriteRenderer() {
 	glDeleteVertexArrays(1, &this->quadVAO);
 }
 
-void SpriteRenderer::drawSprite(Texture2D &texture, glm::vec2 position, glm::vec2 size, GLfloat rotate, glm::vec3 color) {
+void SpriteRenderer::draw(Texture2D &texture, glm::vec2 position, glm::vec2 size, GLfloat rotate, glm::vec3 color) {
 	this->getCurrentShader().use();
 	glm::mat4 model(1.0f);
 
@@ -56,14 +56,4 @@ void SpriteRenderer::init() {
 	glVertexAttribPointer(0, 4, GL_FLOAT, GL_FALSE, 4 * sizeof(GLfloat), (GLvoid*)0);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
-}
-
-// Accessors
-Shader SpriteRenderer::getCurrentShader() const {
-	return this->shader;
-}
-
-// Mutators
-void SpriteRenderer::setShader(Shader &shader) {
-	this->shader = shader;
 }
