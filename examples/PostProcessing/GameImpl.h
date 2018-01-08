@@ -17,6 +17,12 @@
 #include <SpriteRenderer.h>
 #include "PostProcessor.h"
 
+enum GameState {
+	GAME_ACTIVE,
+	GAME_MENU,
+	GAME_WIN,
+};
+
 struct Screen {
 	GLuint width;
 	GLuint height;
@@ -24,25 +30,11 @@ struct Screen {
 
 class GameImpl {
 	public:
-		GameImpl(GLuint width, GLuint height);
+		GameImpl();
 		~GameImpl();
 
-		// Acessors
-		Screen getScreen() const;
-		SpriteRenderer* getSpriteRenderer() const;
-		PostProcessor* getPostProcessor() const;
-
-		// Mutators
-		void setScreen(GLuint width, GLuint height);
-		void setSpriteRenderer(SpriteRenderer* renderer);
-		void setPostProcessor(PostProcessor* effect);
-		void setPostProcessor(Shader &shader);
-
 	private:
-		Screen screen;
 		ResourceManager* resMgr;
-		SpriteRenderer* spriteRenderer;
-		PostProcessor* effect;
 };
 
 #endif // !GAMEIMPL_H

@@ -1,16 +1,13 @@
 #include "Game.h"
 
-#include <iostream>
-
-#include <ResourceManager.h>
 #include <CommonUtilities.h>
-#include <SpriteRenderer.h>
-#include "PostProcessor.h"
+
 #include <iostream>
 
-Game::Game(GLuint width, GLuint height) {
+Game::Game(GLuint width, GLuint height) 
+	: screen({width, height}) {
 	if (gameImplementation == nullptr) {
-		gameImplementation = new GameImpl(width, height);
+		gameImplementation = new GameImpl();
 	}
 
 	resMgr = ResourceManager::GetInstance();
@@ -18,6 +15,8 @@ Game::Game(GLuint width, GLuint height) {
 
 Game::~Game() {
 	delete gameImplementation;
+	delete spriteRenderer;
+	delete effect;
 }
 
 void Game::init() {
@@ -30,14 +29,16 @@ void Game::init() {
 	resMgr->getShader("sprite").setInteger("image", 0, GL_TRUE);
 	resMgr->getShader("sprite").setMatrix4("projection", projection);
 	
-	this->gameImplementation->setSpriteRenderer(new SpriteRenderer(resMgr->getShader("sprite")));
-	this->gameImplementation->setPostProcessor(resMgr->getShader("effect"));
+	this->spriteRenderer = new SpriteRenderer(resMgr->getShader("sprite"));
+	this->effect = new PostProcessor(resMgr->getShader("effect"), this->getScreen().width, this->getScreen().height);
+	this->textRenderer = new TextRenderer(this->getScreen().width, this->getScreen().height);
+	this->textRenderer->load(CommonUtilities::getFullPath("examples/PostProcessing/OCRAEXT.TTF").c_str(), 24);
 }
 
 void Game::processInput(GLfloat dt) {
 	if (this->keys[GLFW_KEY_ENTER] && !this->keysProcessed[GLFW_KEY_ENTER]) {
 		this->keysProcessed[GLFW_KEY_ENTER] = GL_TRUE;
-		this->gameImplementation->getPostProcessor()->setEdgeDetection(!this->gameImplementation->getPostProcessor()->getEdgeDetection());
+		this->effect->setEdgeDetection(!this->effect->getEdgeDetection());
 	}
 }
 
@@ -46,21 +47,22 @@ void Game::update(GLfloat dt) {
 }
 
 void Game::render() {
-	this->gameImplementation->getPostProcessor()->beginRender();
+	this->effect->beginRender();
 
-	this->gameImplementation->getSpriteRenderer()->drawSprite(resMgr->getTexture("box"),
-															  glm::vec2(0, 0), 
-															  glm::vec2(this->gameImplementation->getScreen().width, this->gameImplementation->getScreen().height),
-															  0.0f);
-
-	this->gameImplementation->getPostProcessor()->endRender();
-	this->gameImplementation->getPostProcessor()->postProcessRender(glfwGetTime());
+	this->spriteRenderer->drawSprite(resMgr->getTexture("box"),
+									glm::vec2(0, 0), 
+									glm::vec2(this->getScreen().width, this->getScreen().height),
+									0.0f);
+	
+	this->effect->endRender();
+	this->effect->postProcessRender(glfwGetTime());
+	textRenderer->renderText("Press ENTER to toggle", 250.0f, this->getScreen().height / 2, 1.0f);
 }
 
 
 // Accessors
 Screen Game::getScreen() {
-	return this->gameImplementation->getScreen();
+	return this->screen;
 }
 
 GameState Game::getState() {
@@ -77,7 +79,7 @@ GLboolean Game::getKeysProcessed(GLuint key) {
 
 // Mutators
 void Game::setScreen(GLuint width, GLuint height) {
-	this->gameImplementation->setScreen(width, height);
+	this->screen = { width, height };
 }
 
 void Game::setState(GameState state) {

@@ -6,9 +6,10 @@
 #include "CommonUtilities.h"
 #include "SpriteRenderer.h"
 
-Game::Game(GLuint width, GLuint height) {
+Game::Game(GLuint width, GLuint height) 
+	: screen({width, height}) {
 	if (gameImplementation == nullptr) {
-		gameImplementation = new GameImpl(width, height);
+		gameImplementation = new GameImpl();
 	}
 
 	resMgr = ResourceManager::GetInstance();
@@ -37,7 +38,7 @@ void Game::render() {
 
 // Accessors
 Screen Game::getScreen() {
-	return this->gameImplementation->getScreen();
+	return this->screen;
 }
 
 GameState Game::getState() {
@@ -54,7 +55,7 @@ GLboolean Game::getKeysProcessed(GLuint key) {
 
 // Mutators
 void Game::setScreen(GLuint width, GLuint height) {
-	this->gameImplementation->setScreen(width, height);
+	this->screen = { width, height };
 }
 
 void Game::setState(GameState state) {

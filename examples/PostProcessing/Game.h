@@ -6,13 +6,12 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <glfw/glfw3.h>
 
-#include "GameImpl.h"
+#include <ResourceManager.h>
+#include <SpriteRenderer.h>
+#include <TextRenderer.h>
 
-enum GameState {
-	GAME_ACTIVE,
-	GAME_MENU,
-	GAME_WIN,
-};
+#include "PostProcessor.h"
+#include "GameImpl.h"
 
 class Game {
 	public:
@@ -39,7 +38,13 @@ class Game {
 		GameState state;
 		GLboolean keys[1024];
 		GLboolean keysProcessed[1024];
+		Screen screen;
+
+		SpriteRenderer* spriteRenderer;
+		TextRenderer* textRenderer;
+		PostProcessor* effect;
 		ResourceManager* resMgr;
+
 		static GameImpl* gameImplementation;
 };
 

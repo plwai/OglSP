@@ -16,6 +16,12 @@
 #include "CommonUtilities.h"
 #include "SpriteRenderer.h"
 
+enum GameState {
+	GAME_ACTIVE,
+	GAME_MENU,
+	GAME_WIN,
+};
+
 struct Screen {
 	GLuint width;
 	GLuint height;
@@ -23,17 +29,10 @@ struct Screen {
 
 class GameImpl {
 	public:
-		GameImpl(GLuint width, GLuint height);
+		GameImpl();
 		~GameImpl();
 
-		// Acessors
-		Screen getScreen() const;
-
-		// Mutators
-		void setScreen(GLuint width, GLuint height);
-
 	private:
-		Screen screen;
 		ResourceManager* resMgr;
 };
 

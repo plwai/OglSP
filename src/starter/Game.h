@@ -8,12 +8,6 @@
 
 #include "GameImpl.h"
 
-enum GameState {
-	GAME_ACTIVE,
-	GAME_MENU,
-	GAME_WIN,
-};
-
 class Game {
 	public:
 		Game(GLuint width, GLuint height);
@@ -39,6 +33,7 @@ class Game {
 		GameState state;
 		GLboolean keys[1024];
 		GLboolean keysProcessed[1024];
+		Screen screen;
 		ResourceManager* resMgr;
 		static GameImpl* gameImplementation;
 };
