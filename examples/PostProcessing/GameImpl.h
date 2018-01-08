@@ -8,13 +8,16 @@
 #include <glfw/glfw3.h>
 
 #include <string>
+#include <vector>
 
 #include <glm/glm.hpp>
 #include <glad/glad.h>
 
 #include <ResourceManager.h>
 #include <CommonUtilities.h>
+#include <Renderer2D.h>
 #include <SpriteRenderer.h>
+#include <BoxObject.h>
 #include "PostProcessor.h"
 
 enum GameState {
@@ -33,7 +36,15 @@ class GameImpl {
 		GameImpl();
 		~GameImpl();
 
+		void initLevel();
+		void renderLevel(Renderer2D* renderer);
+
+		std::vector<BoxObject*> getBoxCollection() const;
+
+		void setBoxCollection(std::vector<BoxObject*> boxesCollection);
+
 	private:
+		std::vector<BoxObject*> boxesCollection;
 		ResourceManager* resMgr;
 };
 

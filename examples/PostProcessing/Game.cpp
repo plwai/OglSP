@@ -23,8 +23,6 @@ void Game::init() {
 	resMgr->loadShader(CommonUtilities::getFullPath("src/shaders/sprite.vert").c_str(), CommonUtilities::getFullPath("src/shaders/sprite.frag").c_str(), nullptr, "sprite");
 	resMgr->loadShader(CommonUtilities::getFullPath("examples/PostProcessing/postProcess.vert").c_str(), CommonUtilities::getFullPath("examples/PostProcessing/postProcess.frag").c_str(), nullptr, "effect");
 
-	resMgr->loadTexture(CommonUtilities::getFullPath("examples/PostProcessing/box_texture.jpg").c_str(), GL_FALSE, "box");
-
 	glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(this->getScreen().width), static_cast<GLfloat>(this->getScreen().height), 0.0f, -1.0f, 1.0f);
 	resMgr->getShader("sprite").setInteger("image", 0, GL_TRUE);
 	resMgr->getShader("sprite").setMatrix4("projection", projection);
@@ -33,6 +31,8 @@ void Game::init() {
 	this->effect = new PostProcessor(resMgr->getShader("effect"), this->getScreen().width, this->getScreen().height);
 	this->textRenderer = new TextRenderer(this->getScreen().width, this->getScreen().height);
 	this->textRenderer->load(CommonUtilities::getFullPath("examples/PostProcessing/OCRAEXT.TTF").c_str(), 24);
+
+	this->gameImplementation->initLevel();
 }
 
 void Game::processInput(GLfloat dt) {
@@ -49,10 +49,12 @@ void Game::update(GLfloat dt) {
 void Game::render() {
 	this->effect->beginRender();
 
-	this->spriteRenderer->draw(resMgr->getTexture("box"),
+	/*this->spriteRenderer->draw(resMgr->getTexture("box"),
 									glm::vec2(0, 0), 
 									glm::vec2(this->getScreen().width, this->getScreen().height),
-									0.0f);
+									0.0f);*/
+
+	this->gameImplementation->renderLevel(spriteRenderer);
 	
 	this->effect->endRender();
 	this->effect->postProcessRender(glfwGetTime());

@@ -18,6 +18,8 @@ set ( source_files
 	Game.cpp
 	GameImpl.cpp
 	PostProcessor.cpp
+	BoxObject.cpp
+
 	main.cc
 )
 
@@ -25,6 +27,7 @@ set ( header_files
 	Game.h
 	GameImpl.h
 	PostProcessor.h
+	BoxObject.h
 )
 
 set ( shader_files
