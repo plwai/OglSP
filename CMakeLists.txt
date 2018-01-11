@@ -5,6 +5,10 @@ find_package(OpenGL REQUIRED)
 find_package(GLFW3 3.2 REQUIRED)
 find_package(GLM 0.9.9 REQUIRED)
 find_package(freetype REQUIRED)
+find_library(OpenAL NAMES OpenAL32 HINTS "$ENV{OPENAL_DIR}/libs/Win64")
+find_library(LibOgg NAMES libogg_static HINTS "$ENV{LIBOGG_DIR}/win32/lib")
+find_library(LibVorbis NAMES libvorbis_static HINTS "$ENV{LIBVORBIS_DIR}/win32/lib")
+find_library(LibVorbisFile NAMES libvorbisfile_static HINTS "$ENV{LIBVORBIS_DIR}/win32/lib")
 
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/lib)
@@ -41,7 +45,10 @@ set ( source_files
 	${OglSP_SOURCE_PATH}/ResourceImpl.cpp
 	${OglSP_SOURCE_PATH}/Shader.cpp
 	${OglSP_SOURCE_PATH}/Texture2D.cpp
+
+	${OglSP_SOURCE_PATH}/AudioEngine.cpp
 	${OglSP_SOURCE_PATH}/Audio.cpp
+	${OglSP_SOURCE_PATH}/OggReader.cpp
 
 	${OglSP_SOURCE_PATH}/CommonUtilities.cpp
 )
@@ -58,7 +65,11 @@ set ( header_files
 	${OglSP_SOURCE_PATH}/ResourceImpl.h
 	${OglSP_SOURCE_PATH}/Shader.h
 	${OglSP_SOURCE_PATH}/Texture2D.h
+
+	${OglSP_SOURCE_PATH}/AudioEngine.h
 	${OglSP_SOURCE_PATH}/Audio.h	
+	${OglSP_SOURCE_PATH}/Decoder.h
+	${OglSP_SOURCE_PATH}/OggReader.h
 
 	${OglSP_SOURCE_PATH}/CommonUtilities.h
 )
@@ -88,10 +99,17 @@ target_include_directories(OglSP PUBLIC "${PROJECT_SOURCE_DIR}/modules/stb")
 target_include_directories(OglSP PUBLIC ${OPENGL_INCLUDE_DIR})
 target_include_directories(OglSP PUBLIC ${GLM_INCLUDE_DIR})
 target_include_directories(OglSP PUBLIC ${FREETYPE_INCLUDE_DIRS})
+target_include_directories(OglSP PUBLIC "$ENV{OPENAL_DIR}/include")
+target_include_directories(OglSP PUBLIC "$ENV{LIBOGG_DIR}/include")
+target_include_directories(OglSP PUBLIC "$ENV{LIBVORBIS_DIR}/include")
 target_link_libraries(OglSP ${FREETYPE_LIBRARIES})
 target_link_libraries(OglSP ${OPENGL_gl_LIBRARY})
 target_link_libraries(OglSP glfw)
 target_link_libraries(OglSP glm)
+target_link_libraries(OglSP ${OpenAL})
+target_link_libraries(OglSP ${LibOgg})
+target_link_libraries(OglSP ${LibVorbis})
+target_link_libraries(OglSP ${LibVorbisFile})
 
 if(OglSP_EXAMPLE)
 	add_subdirectory(examples)

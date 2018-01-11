@@ -7,6 +7,7 @@
 #include <glfw/glfw3.h>
 
 #include "GameImpl.h"
+#include "AudioEngine.h"
 
 class Game {
 	public:
@@ -16,6 +17,7 @@ class Game {
 		void processInput(GLfloat dt);
 		void update(GLfloat dt);
 		void render();
+		void clearBuffer();
 
 		// Accessors
 		Screen getScreen();
@@ -35,6 +37,7 @@ class Game {
 		GLboolean keysProcessed[1024];
 		Screen screen;
 		ResourceManager* resMgr;
+		Audio* BGM;
 		static GameImpl* gameImplementation;
 };
 

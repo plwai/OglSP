@@ -32,6 +32,9 @@ void Game::init() {
 	this->textRenderer = new TextRenderer(this->getScreen().width, this->getScreen().height);
 	this->textRenderer->load(CommonUtilities::getFullPath("examples/PostProcessing/OCRAEXT.TTF").c_str(), 24);
 
+	this->audioEngine = AudioEngine::GetInstance();
+	this->audioEngine->loadAudio(CommonUtilities::getFullPath("examples/PostProcessing/stereo.ogg"), "sample");
+
 	this->gameImplementation->initLevel();
 }
 
@@ -49,11 +52,6 @@ void Game::update(GLfloat dt) {
 void Game::render() {
 	this->effect->beginRender();
 
-	/*this->spriteRenderer->draw(resMgr->getTexture("box"),
-									glm::vec2(0, 0), 
-									glm::vec2(this->getScreen().width, this->getScreen().height),
-									0.0f);*/
-
 	this->gameImplementation->renderLevel(spriteRenderer);
 	
 	this->effect->endRender();
@@ -61,6 +59,10 @@ void Game::render() {
 	textRenderer->renderText("Press ENTER to toggle", 250.0f, this->getScreen().height / 2, 1.0f);
 }
 
+void Game::clearBuffer() {
+	ResourceManager::GetInstance()->clear();
+	AudioEngine::GetInstance()->destroy();
+}
 
 // Accessors
 Screen Game::getScreen() {

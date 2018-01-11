@@ -78,7 +78,7 @@ int main(int argc, char* argv[]) {
 	}
 
 	// Clear resource
-	ResourceManager::GetInstance()->clear();
+	game.clearBuffer();
 
 	glfwTerminate();
 

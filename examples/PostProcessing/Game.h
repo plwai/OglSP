@@ -9,6 +9,7 @@
 #include <ResourceManager.h>
 #include <SpriteRenderer.h>
 #include <TextRenderer.h>
+#include <AudioEngine.h>
 
 #include "PostProcessor.h"
 #include "GameImpl.h"
@@ -21,6 +22,7 @@ class Game {
 		void processInput(GLfloat dt);
 		void update(GLfloat dt);
 		void render();
+		void clearBuffer();
 
 		// Accessors
 		Screen getScreen();
@@ -44,6 +46,7 @@ class Game {
 		TextRenderer* textRenderer;
 		PostProcessor* effect;
 		ResourceManager* resMgr;
+		AudioEngine* audioEngine;
 
 		static GameImpl* gameImplementation;
 };

@@ -1,10 +1,10 @@
 #include "Game.h"
 
 #include <iostream>
-
 #include "ResourceManager.h"
 #include "CommonUtilities.h"
 #include "SpriteRenderer.h"
+
 
 Game::Game(GLuint width, GLuint height) 
 	: screen({width, height}) {
@@ -20,7 +20,6 @@ Game::~Game() {
 }
 
 void Game::init() {
-
 }
 
 void Game::processInput(GLfloat dt) {
@@ -35,6 +34,10 @@ void Game::render() {
 
 }
 
+void Game::clearBuffer() {
+	ResourceManager::GetInstance()->clear();
+	AudioEngine::GetInstance()->destroy();
+}
 
 // Accessors
 Screen Game::getScreen() {
