@@ -1,5 +1,5 @@
 # OglSP
-A simple opengl utilities stater pack which include utilities like shader loader, texture loader, sprite rendering and etc. A simple example is included in this project.
+A simple opengl utilities stater pack which include utilities like shader loader, texture loader, sprite rendering and etc. A simple example is included in this project. Currently, only 2D is supported.
 
 # Dependency
 - CMake 3.10+
