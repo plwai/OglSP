@@ -2,8 +2,8 @@
 #define BOX_OBJECT_H
 
 #include <GameObject.h>
-#include "Audio.h"
-#include "AudioEngine.h"
+#include <Audio/Audio.h>
+#include <Audio/AudioEngine.h>
 
 class BoxObject : public GameObject {
 	public:

@@ -7,9 +7,9 @@
 #include <glad/glad.h>
 
 #include "ResourceImpl.h"
-#include "Texture2D.h"
-#include "Shader.h"
-#include "Audio.h"
+#include "Renderer/Texture2D.h"
+#include "Renderer/Shader.h"
+#include "Audio/Audio.h"
 
 class ResourceManager {
 	public:

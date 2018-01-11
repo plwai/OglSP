@@ -15,9 +15,9 @@
 
 #include <ResourceManager.h>
 #include <CommonUtilities.h>
-#include <Renderer2D.h>
-#include <SpriteRenderer.h>
-#include <AudioEngine.h>
+#include <Renderer/Renderer2D.h>
+#include <Renderer/SpriteRenderer.h>
+#include <Audio/AudioEngine.h>
 #include "BoxObject.h"
 #include "PostProcessor.h"
 

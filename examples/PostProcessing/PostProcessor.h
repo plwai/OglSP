@@ -4,8 +4,8 @@
 #include <glad/glad.h>
 #include <glm/glm.hpp>
 
-#include <FbRenderer.h>
-#include <Shader.h>
+#include <Renderer/FbRenderer.h>
+#include <Renderer/Shader.h>
 
 class PostProcessor : public FrameBufferRenderer {
 	public:

@@ -6,8 +6,8 @@
 #include <ft2build.h>
 #include FT_FREETYPE_H
 
-#include "ResourceManager.h"
-#include "CommonUtilities.h"
+#include "../ResourceManager.h"
+#include "../CommonUtilities.h"
 
 TextRenderer::TextRenderer(GLuint width, GLuint height) {
 	this->setTextShader(ResourceManager::GetInstance()->loadShader(CommonUtilities::getFullPath("src/shaders/text.vert").c_str(), CommonUtilities::getFullPath("src/shaders/text.frag").c_str(), nullptr, "text"));
@@ -72,7 +72,7 @@ void TextRenderer::load(std::string font, GLuint fontSize) {
 			texture,
 			glm::ivec2(face->glyph->bitmap.width, face->glyph->bitmap.rows),
 			glm::ivec2(face->glyph->bitmap_left, face->glyph->bitmap_top),
-			face->glyph->advance.x
+			(GLuint)face->glyph->advance.x
 		};
 		characters.insert(std::pair<GLchar, Character>(c, character));
 	}

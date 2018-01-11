@@ -36,19 +36,20 @@ set ( source_files
 	
 	${OglSP_SOURCE_PATH}/Game.cpp
 	${OglSP_SOURCE_PATH}/GameImpl.cpp
-	${OglSP_SOURCE_PATH}/TextRenderer.cpp
-	${OglSP_SOURCE_PATH}/Renderer2D.cpp
-	${OglSP_SOURCE_PATH}/SpriteRenderer.cpp
-	${OglSP_SOURCE_PATH}/FbRenderer.cpp
 	${OglSP_SOURCE_PATH}/GameObject.cpp
 	${OglSP_SOURCE_PATH}/ResourceManager.cpp
 	${OglSP_SOURCE_PATH}/ResourceImpl.cpp
-	${OglSP_SOURCE_PATH}/Shader.cpp
-	${OglSP_SOURCE_PATH}/Texture2D.cpp
 
-	${OglSP_SOURCE_PATH}/AudioEngine.cpp
-	${OglSP_SOURCE_PATH}/Audio.cpp
-	${OglSP_SOURCE_PATH}/OggReader.cpp
+	${OglSP_SOURCE_PATH}/Renderer/Shader.cpp
+	${OglSP_SOURCE_PATH}/Renderer/Texture2D.cpp
+	${OglSP_SOURCE_PATH}/Renderer/TextRenderer.cpp
+	${OglSP_SOURCE_PATH}/Renderer/Renderer2D.cpp
+	${OglSP_SOURCE_PATH}/Renderer/SpriteRenderer.cpp
+	${OglSP_SOURCE_PATH}/Renderer/FbRenderer.cpp
+
+	${OglSP_SOURCE_PATH}/Audio/AudioEngine.cpp
+	${OglSP_SOURCE_PATH}/Audio/Audio.cpp
+	${OglSP_SOURCE_PATH}/Audio/OggReader.cpp
 
 	${OglSP_SOURCE_PATH}/CommonUtilities.cpp
 )
@@ -56,20 +57,21 @@ set ( source_files
 set ( header_files
 	${OglSP_SOURCE_PATH}/Game.h
 	${OglSP_SOURCE_PATH}/GameImpl.h
-	${OglSP_SOURCE_PATH}/TextRenderer.h
-	${OglSP_SOURCE_PATH}/Renderer2D.h
-	${OglSP_SOURCE_PATH}/SpriteRenderer.h
-	${OglSP_SOURCE_PATH}/FbRenderer.h
 	${OglSP_SOURCE_PATH}/GameObject.h
 	${OglSP_SOURCE_PATH}/ResourceManager.h
 	${OglSP_SOURCE_PATH}/ResourceImpl.h
-	${OglSP_SOURCE_PATH}/Shader.h
-	${OglSP_SOURCE_PATH}/Texture2D.h
 
-	${OglSP_SOURCE_PATH}/AudioEngine.h
-	${OglSP_SOURCE_PATH}/Audio.h	
-	${OglSP_SOURCE_PATH}/Decoder.h
-	${OglSP_SOURCE_PATH}/OggReader.h
+	${OglSP_SOURCE_PATH}/Renderer/Shader.h
+	${OglSP_SOURCE_PATH}/Renderer/Texture2D.h
+	${OglSP_SOURCE_PATH}/Renderer/TextRenderer.h
+	${OglSP_SOURCE_PATH}/Renderer/Renderer2D.h
+	${OglSP_SOURCE_PATH}/Renderer/SpriteRenderer.h
+	${OglSP_SOURCE_PATH}/Renderer/FbRenderer.h
+
+	${OglSP_SOURCE_PATH}/Audio/AudioEngine.h
+	${OglSP_SOURCE_PATH}/Audio/Audio.h	
+	${OglSP_SOURCE_PATH}/Audio/Decoder.h
+	${OglSP_SOURCE_PATH}/Audio/OggReader.h
 
 	${OglSP_SOURCE_PATH}/CommonUtilities.h
 )

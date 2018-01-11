@@ -45,19 +45,20 @@ set ( module_source_files
 )
 
 set ( lib_files
-	${OglSP_SOURCE_PATH}/TextRenderer.cpp
-	${OglSP_SOURCE_PATH}/Renderer2D.cpp
-	${OglSP_SOURCE_PATH}/SpriteRenderer.cpp
-	${OglSP_SOURCE_PATH}/FbRenderer.cpp
 	${OglSP_SOURCE_PATH}/GameObject.cpp
 	${OglSP_SOURCE_PATH}/ResourceManager.cpp
 	${OglSP_SOURCE_PATH}/ResourceImpl.cpp
-	${OglSP_SOURCE_PATH}/Shader.cpp
-	${OglSP_SOURCE_PATH}/Texture2D.cpp
 
-	${OglSP_SOURCE_PATH}/Audio.cpp
-	${OglSP_SOURCE_PATH}/AudioEngine.cpp
-	${OglSP_SOURCE_PATH}/OggReader.cpp
+	${OglSP_SOURCE_PATH}/Renderer/Shader.cpp
+	${OglSP_SOURCE_PATH}/Renderer/Texture2D.cpp
+	${OglSP_SOURCE_PATH}/Renderer/TextRenderer.cpp
+	${OglSP_SOURCE_PATH}/Renderer/Renderer2D.cpp
+	${OglSP_SOURCE_PATH}/Renderer/SpriteRenderer.cpp
+	${OglSP_SOURCE_PATH}/Renderer/FbRenderer.cpp
+
+	${OglSP_SOURCE_PATH}/Audio/Audio.cpp
+	${OglSP_SOURCE_PATH}/Audio/AudioEngine.cpp
+	${OglSP_SOURCE_PATH}/Audio/OggReader.cpp
 
 	${OglSP_SOURCE_PATH}/CommonUtilities.cpp
 )

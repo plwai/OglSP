@@ -3,8 +3,8 @@
 
 #include <glad/glad.h>
 
-#include "Shader.h"
-#include "Texture2D.h"
+#include "Renderer/Shader.h"
+#include "Renderer/Texture2D.h"
 
 class ResourceImpl {
 	public:

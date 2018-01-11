@@ -7,9 +7,9 @@
 #include <glfw/glfw3.h>
 
 #include <ResourceManager.h>
-#include <SpriteRenderer.h>
-#include <TextRenderer.h>
-#include <AudioEngine.h>
+#include <Renderer/SpriteRenderer.h>
+#include <Renderer/TextRenderer.h>
+#include <Audio/AudioEngine.h>
 
 #include "PostProcessor.h"
 #include "GameImpl.h"

@@ -4,8 +4,8 @@
 #include <glad/glad.h>
 #include <glm/glm.hpp>
 
-#include "Texture2D.h"
-#include "Renderer2D.h"
+#include "Renderer/Texture2D.h"
+#include "Renderer/Renderer2D.h"
 
 class GameObject {
 	public:

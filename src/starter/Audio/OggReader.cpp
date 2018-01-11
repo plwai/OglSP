@@ -12,7 +12,8 @@ OggReader::~OggReader() {
 }
 
 bool OggReader::open(std::string filePath) {
-	FILE* filePointer = fopen(filePath.c_str(), "rb");
+	FILE* filePointer;
+	fopen_s(&filePointer, filePath.c_str(), "rb");
 
 	if (filePointer == NULL) {
 		std::cout << "OggReader::ERROR::Failed to open audio file: " + filePath << std::endl;

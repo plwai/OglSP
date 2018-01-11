@@ -14,7 +14,7 @@
 
 #include "ResourceManager.h"
 #include "CommonUtilities.h"
-#include "SpriteRenderer.h"
+#include "Renderer/SpriteRenderer.h"
 
 enum GameState {
 	GAME_ACTIVE,
