@@ -32,8 +32,6 @@ configure_file (
 )
 
 set ( source_files
-	src/main.cc
-	
 	${OglSP_SOURCE_PATH}/Game.cpp
 	${OglSP_SOURCE_PATH}/GameImpl.cpp
 	${OglSP_SOURCE_PATH}/GameObject.cpp
