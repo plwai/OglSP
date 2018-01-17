@@ -2,4 +2,4 @@
 #cmakedefine OglSP_VERSION_MAJOR @OglSP_VERSION_MAJOR@
 #cmakedefine OglSP_VERSION_MINOR @OglSP_VERSION_MINOR@
 
-#cmakedefine ROOT_PATH "@ROOT_PATH@"
+#cmakedefine OGLSP_ROOT_PATH "@OGLSP_ROOT_PATH@"
