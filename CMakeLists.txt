@@ -23,6 +23,7 @@ set (OglSP_VERSION_MINOR 1)
 # path
 set (OGLSP_ROOT_PATH "${CMAKE_CURRENT_SOURCE_DIR}")
 set (OglSP_SOURCE_PATH "${PROJECT_SOURCE_DIR}/src/starter")
+set (OglSP_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/src/starter")
 set (OglSP_SHADER_PATH "${PROJECT_SOURCE_DIR}/src/shaders")
 
 # config file
@@ -67,7 +68,7 @@ set ( header_files
 	${OglSP_SOURCE_PATH}/Renderer/FbRenderer.h
 
 	${OglSP_SOURCE_PATH}/Audio/AudioEngine.h
-	${OglSP_SOURCE_PATH}/Audio/Audio.h	
+	${OglSP_SOURCE_PATH}/Audio/Audio.h
 	${OglSP_SOURCE_PATH}/Audio/Decoder.h
 	${OglSP_SOURCE_PATH}/Audio/OggReader.h
 
@@ -88,7 +89,7 @@ set ( module_source_files
 
 include_directories("${PROJECT_BINARY_DIR}")
 
-add_executable(OglSP ${source_files} ${header_files} ${module_source_files} ${shader_files})
+add_library(OglSP ${source_files} ${header_files} ${module_source_files} ${shader_files})
 
 source_group("Module Source" FILES ${module_source_files})
 source_group("Shader Files" FILES ${shader_files})
@@ -111,9 +112,10 @@ target_link_libraries(OglSP ${LibOgg})
 target_link_libraries(OglSP ${LibVorbis})
 target_link_libraries(OglSP ${LibVorbisFile})
 
+install (TARGETS OglSP DESTINATION lib)
+
 if(OglSP_EXAMPLE)
 	add_subdirectory(examples)
 endif()
 
-install (TARGETS OglSP DESTINATION bin)
 install (FILES "${PROJECT_BINARY_DIR}/StarterConfig.h" DESTINATION include)
