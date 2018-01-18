@@ -89,7 +89,7 @@ set ( module_source_files
 
 include_directories("${PROJECT_BINARY_DIR}")
 
-add_library(OglSP ${source_files} ${header_files} ${module_source_files} ${shader_files})
+add_library(OglSP ${source_files} ${module_source_files} ${shader_files})
 
 source_group("Module Source" FILES ${module_source_files})
 source_group("Shader Files" FILES ${shader_files})
