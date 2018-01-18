@@ -33,8 +33,6 @@ configure_file (
 )
 
 set ( source_files
-	${OglSP_SOURCE_PATH}/Game.cpp
-	${OglSP_SOURCE_PATH}/GameImpl.cpp
 	${OglSP_SOURCE_PATH}/GameObject.cpp
 	${OglSP_SOURCE_PATH}/ResourceManager.cpp
 	${OglSP_SOURCE_PATH}/ResourceImpl.cpp
@@ -54,8 +52,6 @@ set ( source_files
 )
 
 set ( header_files
-	${OglSP_SOURCE_PATH}/Game.h
-	${OglSP_SOURCE_PATH}/GameImpl.h
 	${OglSP_SOURCE_PATH}/GameObject.h
 	${OglSP_SOURCE_PATH}/ResourceManager.h
 	${OglSP_SOURCE_PATH}/ResourceImpl.h
