@@ -23,6 +23,10 @@
 *.a
 *.lib
 
+# Ignore Game Loop
+src/starter/Game.*
+src/starter/GameImpl.*
+
 # Executables
 *.exe
 *.out

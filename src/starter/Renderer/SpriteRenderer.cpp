@@ -1,4 +1,4 @@
-#include "SpriteRenderer.h"
+#include "Renderer/SpriteRenderer.h"
 
 SpriteRenderer::SpriteRenderer(Shader &shader) {
 	this->setShader(shader);

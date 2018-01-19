@@ -23,7 +23,7 @@ set (OglSP_VERSION_MINOR 1)
 # path
 set (OGLSP_ROOT_PATH "${CMAKE_CURRENT_SOURCE_DIR}")
 set (OglSP_SOURCE_PATH "${PROJECT_SOURCE_DIR}/src/starter")
-set (OglSP_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/src/starter")
+set (OglSP_INCLUDE_DIR "${PROJECT_SOURCE_DIR}/include")
 set (OglSP_SHADER_PATH "${PROJECT_SOURCE_DIR}/src/shaders")
 
 # config file
@@ -52,23 +52,23 @@ set ( source_files
 )
 
 set ( header_files
-	${OglSP_SOURCE_PATH}/GameObject.h
-	${OglSP_SOURCE_PATH}/ResourceManager.h
-	${OglSP_SOURCE_PATH}/ResourceImpl.h
+	${OglSP_INCLUDE_DIR}/GameObject.h
+	${OglSP_INCLUDE_DIR}/ResourceManager.h
+	${OglSP_INCLUDE_DIR}/ResourceImpl.h
 
-	${OglSP_SOURCE_PATH}/Renderer/Shader.h
-	${OglSP_SOURCE_PATH}/Renderer/Texture2D.h
-	${OglSP_SOURCE_PATH}/Renderer/TextRenderer.h
-	${OglSP_SOURCE_PATH}/Renderer/Renderer2D.h
-	${OglSP_SOURCE_PATH}/Renderer/SpriteRenderer.h
-	${OglSP_SOURCE_PATH}/Renderer/FbRenderer.h
+	${OglSP_INCLUDE_DIR}/Renderer/Shader.h
+	${OglSP_INCLUDE_DIR}/Renderer/Texture2D.h
+	${OglSP_INCLUDE_DIR}/Renderer/TextRenderer.h
+	${OglSP_INCLUDE_DIR}/Renderer/Renderer2D.h
+	${OglSP_INCLUDE_DIR}/Renderer/SpriteRenderer.h
+	${OglSP_INCLUDE_DIR}/Renderer/FbRenderer.h
 
-	${OglSP_SOURCE_PATH}/Audio/AudioEngine.h
-	${OglSP_SOURCE_PATH}/Audio/Audio.h
-	${OglSP_SOURCE_PATH}/Audio/Decoder.h
-	${OglSP_SOURCE_PATH}/Audio/OggReader.h
+	${OglSP_INCLUDE_DIR}/Audio/AudioEngine.h
+	${OglSP_INCLUDE_DIR}/Audio/Audio.h
+	${OglSP_INCLUDE_DIR}/Audio/Decoder.h
+	${OglSP_INCLUDE_DIR}/Audio/OggReader.h
 
-	${OglSP_SOURCE_PATH}/CommonUtilities.h
+	${OglSP_INCLUDE_DIR}/CommonUtilities.h
 )
 
 set ( shader_files
@@ -99,6 +99,7 @@ target_include_directories(OglSP PUBLIC ${FREETYPE_INCLUDE_DIRS})
 target_include_directories(OglSP PUBLIC "$ENV{OPENAL_DIR}/include")
 target_include_directories(OglSP PUBLIC "$ENV{LIBOGG_DIR}/include")
 target_include_directories(OglSP PUBLIC "$ENV{LIBVORBIS_DIR}/include")
+target_include_directories(OglSP PUBLIC ${OglSP_INCLUDE_DIR})
 target_link_libraries(OglSP ${FREETYPE_LIBRARIES})
 target_link_libraries(OglSP ${OPENGL_gl_LIBRARY})
 target_link_libraries(OglSP glfw)
