@@ -24,8 +24,8 @@
 *.lib
 
 # Ignore Game Loop
-src/starter/Game.*
-src/starter/GameImpl.*
+Game.*
+GameImpl.*
 
 # Executables
 *.exe
