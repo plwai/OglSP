@@ -10,7 +10,7 @@
 #include "CommonUtilities.h"
 
 TextRenderer::TextRenderer(GLuint width, GLuint height) {
-	this->setTextShader(ResourceManager::GetInstance()->loadShader(CommonUtilities::getFullPath("src/shaders/text.vert").c_str(), CommonUtilities::getFullPath("src/shaders/text.frag").c_str(), nullptr, "text"));
+	this->setTextShader(ResourceManager::GetInstance()->loadShader(CommonUtilities::getFullPath("resource/shaders/text.vert").c_str(), CommonUtilities::getFullPath("resource/shaders/text.frag").c_str(), nullptr, "text"));
 	this->getTextShader().setMatrix4("projection", glm::ortho(0.0f, static_cast<GLfloat>(width), static_cast<GLfloat>(height), 0.0f), GL_TRUE);
 	this->getTextShader().setInteger("text", 0);
 

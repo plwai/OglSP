@@ -71,7 +71,7 @@ set ( header_files
 	${OglSP_INCLUDE_DIR}/CommonUtilities.h
 )
 
-set ( shader_files
+set ( OglSP_shader_files
 	${OglSP_SHADER_PATH}/sprite.vert
 	${OglSP_SHADER_PATH}/text.vert
 
@@ -85,10 +85,10 @@ set ( module_source_files
 
 include_directories("${PROJECT_BINARY_DIR}")
 
-add_library(OglSP ${source_files} ${module_source_files} ${shader_files})
+add_library(OglSP ${source_files} ${module_source_files} ${OglSP_shader_files})
 
 source_group("Module Source" FILES ${module_source_files})
-source_group("Shader Files" FILES ${shader_files})
+source_group("Shader Files" FILES ${OglSP_shader_files})
 
 target_include_directories(OglSP PUBLIC ${OPENGL_INCLUDE_DIR})
 target_include_directories(OglSP PUBLIC "${PROJECT_SOURCE_DIR}/modules/glad/include")
@@ -116,3 +116,5 @@ if(OglSP_EXAMPLE)
 endif()
 
 install (FILES "${PROJECT_BINARY_DIR}/StarterConfig.h" DESTINATION include)
+install (FILES ${header_files} DESTINATION include)
+install (FILES ${OglSP_shader_files} DESTINATION resource/shaders)

@@ -20,8 +20,8 @@ Game::~Game() {
 }
 
 void Game::init() {
-	resMgr->loadShader(CommonUtilities::getFullPath("src/shaders/sprite.vert").c_str(), CommonUtilities::getFullPath("src/shaders/sprite.frag").c_str(), nullptr, "sprite");
-	resMgr->loadShader(CommonUtilities::getFullPath("examples/PostProcessing/postProcess.vert").c_str(), CommonUtilities::getFullPath("examples/PostProcessing/postProcess.frag").c_str(), nullptr, "effect");
+	resMgr->loadShader(CommonUtilities::getFullPath("resource/shaders/sprite.vert").c_str(), CommonUtilities::getFullPath("resource/shaders/sprite.frag").c_str(), nullptr, "sprite");
+	resMgr->loadShader(CommonUtilities::getFullPath("resource/shaders/postProcess.vert").c_str(), CommonUtilities::getFullPath("resource/shaders/postProcess.frag").c_str(), nullptr, "effect");
 
 	glm::mat4 projection = glm::ortho(0.0f, static_cast<GLfloat>(this->getScreen().width), static_cast<GLfloat>(this->getScreen().height), 0.0f, -1.0f, 1.0f);
 	resMgr->getShader("sprite").setInteger("image", 0, GL_TRUE);
@@ -30,10 +30,10 @@ void Game::init() {
 	this->spriteRenderer = new SpriteRenderer(resMgr->getShader("sprite"));
 	this->effect = new PostProcessor(resMgr->getShader("effect"), this->getScreen().width, this->getScreen().height);
 	this->textRenderer = new TextRenderer(this->getScreen().width, this->getScreen().height);
-	this->textRenderer->load(CommonUtilities::getFullPath("examples/PostProcessing/OCRAEXT.TTF").c_str(), 24);
+	this->textRenderer->load(CommonUtilities::getFullPath("resource/fonts/OCRAEXT.TTF").c_str(), 24);
 
 	this->audioEngine = AudioEngine::GetInstance();
-	this->audioEngine->loadAudio(CommonUtilities::getFullPath("examples/PostProcessing/stereo.ogg"), "sample");
+	this->audioEngine->loadAudio(CommonUtilities::getFullPath("resource/audio/stereo.ogg"), "sample");
 
 	this->gameImplementation->initLevel();
 }
