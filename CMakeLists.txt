@@ -34,6 +34,7 @@ configure_file (
 
 set ( source_files
 	${OglSP_SOURCE_PATH}/GameObject.cpp
+	${OglSP_SOURCE_PATH}/PixelObject.cpp
 	${OglSP_SOURCE_PATH}/ResourceManager.cpp
 	${OglSP_SOURCE_PATH}/ResourceImpl.cpp
 
@@ -53,6 +54,7 @@ set ( source_files
 
 set ( header_files
 	${OglSP_INCLUDE_DIR}/GameObject.h
+	${OglSP_INCLUDE_DIR}/PixelObject.h
 	${OglSP_INCLUDE_DIR}/ResourceManager.h
 	${OglSP_INCLUDE_DIR}/ResourceImpl.h
 
@@ -85,7 +87,7 @@ set ( module_source_files
 
 include_directories("${PROJECT_BINARY_DIR}")
 
-add_library(OglSP ${source_files} ${module_source_files} ${OglSP_shader_files})
+add_library(OglSP ${source_files} ${module_source_files} ${OglSP_shader_files} ${header_files})
 
 source_group("Module Source" FILES ${module_source_files})
 source_group("Shader Files" FILES ${OglSP_shader_files})

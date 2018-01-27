@@ -18,6 +18,7 @@
 #include <Renderer/Renderer2D.h>
 #include <Renderer/SpriteRenderer.h>
 #include <Audio/AudioEngine.h>
+#include <PixelObject.h>
 #include "BoxObject.h"
 #include "PostProcessor.h"
 
@@ -46,6 +47,7 @@ class GameImpl {
 
 	private:
 		std::vector<BoxObject*> boxesCollection;
+		std::vector<PixelObject*> pixelObjCollection;
 		ResourceManager* resMgr;
 };
 

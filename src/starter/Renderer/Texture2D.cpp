@@ -24,6 +24,19 @@ void Texture2D::generate(GLuint width, GLuint height, unsigned char* data) {
 	glBindTexture(GL_TEXTURE_2D, 0);
 }
 
+void Texture2D::update(unsigned char* data) {
+	this->bind();
+
+	glTexSubImage2D(GL_TEXTURE_2D, 0, 0, 0, this->width, this->height, this->getImageFormat(), GL_UNSIGNED_BYTE, data);
+}
+
+void Texture2D::update(GLuint width, GLuint height, unsigned char* data) {
+	this->setWidth(width);
+	this->setHeight(height);
+
+	this->update(data);
+}
+
 void Texture2D::bind() const {
 	glBindTexture(GL_TEXTURE_2D, this->getTextureID());
 }

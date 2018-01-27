@@ -9,6 +9,8 @@ class Texture2D {
 		Texture2D();
 
 		void generate(GLuint width, GLuint height, unsigned char* data);
+		void update(unsigned char* data);
+		void update(GLuint width, GLuint height, unsigned char* data);
 		void bind() const;
 
 		// Accessors
