@@ -6,6 +6,12 @@ PixelObject::PixelObject(GFXdata &gfx, glm::vec2 size, glm::vec2 position, glm::
 	this->init();
 }
 
+PixelObject::PixelObject(glm::vec2 size, glm::vec2 position, glm::vec3 color)
+	: texture(), gfx({0,0,0}), size(size), position(position), color(color) {
+
+	this->init();
+}
+
 PixelObject::~PixelObject() {
 
 }
@@ -48,6 +54,11 @@ void PixelObject::setColor(glm::vec3 color) {
 }
 
 void PixelObject::init() {
+	this->texture.setFilterMax(GL_NEAREST);
+	this->texture.setFilterMax(GL_NEAREST);
+	this->texture.setWrapS(GL_CLAMP_TO_BORDER);
+	this->texture.setWrapT(GL_CLAMP_TO_BORDER);
+
 	this->texture.generate(this->size.x, this->size.y, NULL);
 	this->texture.update(this->gfx.width, this->gfx.height, this->gfx.gfx);
 }

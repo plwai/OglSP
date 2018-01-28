@@ -25,7 +25,8 @@ void GameImpl::initLevel() {
 	}
 
 	GFXdata gfx = {pixelData, 100, 100};
-	pixelObjCollection.push_back(new PixelObject(gfx, glm::vec2(100), glm::vec2(85, 85), glm::vec3(255, 0, 0)));
+	pixelObjCollection.push_back(new PixelObject(glm::vec2(100), glm::vec2(85, 85), glm::vec3(255, 0, 0)));
+	pixelObjCollection.front()->update(gfx);
 	pixelObjCollection.push_back(new PixelObject(gfx, glm::vec2(100), glm::vec2(345, 85), glm::vec3(0, 255, 0)));
 	pixelObjCollection.push_back(new PixelObject(gfx, glm::vec2(100), glm::vec2(605, 85), glm::vec3(0, 0, 255)));
 
