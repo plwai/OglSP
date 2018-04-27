@@ -29,7 +29,6 @@ configure_file (
 	"${PROJECT_SOURCE_DIR}/src/StarterConfig.h.in" 
 	"${OglSPLib_INCLUDE_DIR}/StarterConfig.h"
 )
-message("${PROJECT_BINARY_DIR}")
 
 set ( source_files
 	${OglSPLib_SOURCE_PATH}/GameObject.cpp
