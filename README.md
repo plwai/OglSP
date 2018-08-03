@@ -12,4 +12,4 @@ A simple opengl utilities stater pack which include utilities like shader loader
 - OpenAL
 
 # License
-This project is built for own use and without warranty.
+MIT
